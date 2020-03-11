@@ -39,12 +39,12 @@ class Request extends BaseRequest
 
     private function buildDefaultUserAgent(): string
     {
-        $userAgent = 'grpc-php-hyperf/1.0';
-        $grpcClientVersion = PrettyVersions::getVersion('hyperf/grpc-client')->getPrettyVersion();
-        if ($grpcClientVersion) {
-            $explodedVersions = explode('@', $grpcClientVersion);
-            $userAgent .= ' (hyperf-grpc-client/' . $explodedVersions[0] . ')';
-        }
+        $userAgent = 'grpc-php/1.0';
+//        $grpcClientVersion = PrettyVersions::getVersion('hyperf/grpc-client')->getPrettyVersion();
+//        if ($grpcClientVersion) {
+//            $explodedVersions = explode('@', $grpcClientVersion);
+//            $userAgent .= ' (hyperf-grpc-client/' . $explodedVersions[0] . ')';
+//        }
         return $userAgent;
     }
 }
