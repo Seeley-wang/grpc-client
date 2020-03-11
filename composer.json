@@ -1,5 +1,5 @@
 {
-    "name": "hyperf/grpc-client",
+    "name": "seeley/grpc-client",
     "description": "A GRPC Client for Hyperf.",
     "license": "MIT",
     "keywords": [
