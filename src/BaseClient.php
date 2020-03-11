@@ -65,8 +65,8 @@ class BaseClient
 
         $this->package = $serviceName;
         $this->hostname = $hostname;
-        $this->options = $options['options'];
-        $this->interface = $options['service_interface'];
+        $this->options = $options['options'] ?? [];
+        $this->interface = $options['service_interface'] ?? [];
         $this->headers = $options['headers'] ?? [];
     }
 
