@@ -71,7 +71,7 @@ class AddConsumerDefinitionListener implements ListenerInterface
                             [
                                 'load_balancer' => $consumer['load_balancer'] ?? 'random',
                                 'service_interface' => $serviceClass,
-                                'site' => $container->get(ConfigInterface::class)->get('grpc.site', ''),
+                                'headers' => $container->get(ConfigInterface::class)->get('grpc.headers', ''),
                                 'options' => $consumer['options']
                             ]
                         );
