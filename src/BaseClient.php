@@ -67,7 +67,7 @@ class BaseClient
         $this->hostname = $hostname;
         $this->options = $options['options'];
         $this->interface = $options['service_interface'];
-        $this->headers = $options['headers'];
+        $this->headers = $options['headers'] ?? [];
     }
 
     public function __destruct()
@@ -145,7 +145,7 @@ class BaseClient
         Message $argument
     )
     {
-        $url= $this->package . $method;
+        $url = $this->package . $method;
 
         $streamId = retry($this->options['retry_attempts'] ?? 3, function () use ($url, $argument) {
             $streamId = $this->send($this->buildRequest($url, $argument));
