@@ -45,7 +45,7 @@ class BaseClient
 
     private $package;
 
-    private $header;
+    private $headers;
 
     /**
      * @var bool
@@ -67,7 +67,7 @@ class BaseClient
         $this->hostname = $hostname;
         $this->options = $options['options'];
         $this->interface = $options['service_interface'];
-        $this->site = $options['site'];
+        $this->headers = $options['headers'];
     }
 
     public function __destruct()
@@ -209,6 +209,6 @@ class BaseClient
 
     protected function buildRequest(string $method, Message $argument): Request
     {
-        return new Request($method, $argument, ['site' => $this->site]);
+        return new Request($method, $argument, $this->headers);
     }
 }
