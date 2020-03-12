@@ -43,7 +43,7 @@ class ProxyCallVisitor extends NodeVisitorAbstract
             $node->stmts = [
                 new Node\Stmt\Return_(new Node\Expr\MethodCall(
                     new Node\Expr\PropertyFetch(new Node\Expr\Variable('this'), new Node\Identifier('client')),
-                    new Node\Identifier('simpleRequest'),
+                    new Node\Identifier('doSend'),
                     [
                         new Node\Scalar\MagicConst\Function_(),
                         new Node\Name('$request'),
