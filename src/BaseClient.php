@@ -19,6 +19,7 @@ use Hyperf\Grpc\StatusCode;
 use Hyperf\GrpcClient\Exception\GrpcClientException;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Utils\ChannelPool;
+use Hyperf\Utils\Context;
 use InvalidArgumentException;
 
 /**
@@ -67,7 +68,7 @@ class BaseClient
         $this->hostname = $hostname;
         $this->options = $options['options'] ?? [];
         $this->interface = $options['service_interface'] ?? [];
-        $this->headers = $options['headers'] ?? [];
+        $this->headers = $options['headers'] ?:Context::get('headers');
     }
 
     public function __destruct()
