@@ -68,7 +68,7 @@ class BaseClient
         $this->hostname = $hostname;
         $this->options = $options['options'] ?? [];
         $this->interface = $options['service_interface'] ?? [];
-        $this->headers = $options['headers'] ?:Context::get('headers');
+        $this->headers = $options['headers'] ?:Context::get('grpc.headers');
     }
 
     public function __destruct()
