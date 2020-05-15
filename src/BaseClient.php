@@ -168,7 +168,7 @@ class BaseClient
         list($reply, $status) = $this->simpleRequest($method, $message);
 
         if ($status !== 0) {
-            throw new GrpcClientException($method . ' 请求失败,错误信息为: ' . $reply . '状态码: ' . $status);
+            throw new GrpcClientException($this->package . $method . ' 请求失败,错误信息为: ' . $reply . '状态码: ' . $status);
         }
 
         return $reply;
