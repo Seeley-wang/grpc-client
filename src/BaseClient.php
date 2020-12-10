@@ -17,6 +17,7 @@ use Hyperf\Di\Annotation\Inject;
 use Hyperf\Grpc\Parser;
 use Hyperf\Grpc\StatusCode;
 use Hyperf\GrpcClient\Exception\GrpcClientException;
+use Hyperf\GrpcClient\Exception\RequestErrorException;
 use Hyperf\Utils\ApplicationContext;
 use Hyperf\Utils\ChannelPool;
 use Hyperf\Utils\Context;
@@ -168,7 +169,7 @@ class BaseClient
         list($reply, $status) = $this->simpleRequest($method, $message);
 
         if ($status !== 0) {
-            throw new GrpcClientException($this->package . $method . ' 请求失败,错误信息为: ' . $reply . '状态码: ' . $status);
+            throw new RequestErrorException($this->package . $method . ' 请求失败,错误信息为: ' . $reply . '状态码: ' . $status);
         }
 
         return $reply;
